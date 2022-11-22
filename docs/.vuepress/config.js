@@ -50,7 +50,9 @@ module.exports = {
           {
             title: '客户端',
             path: '/clients',
-            children: []
+            children: [
+              '/clients/oauth'
+            ]
           }
         ]
       },
