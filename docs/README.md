@@ -2,6 +2,11 @@
 
 保护你的所有 web 应用程序和 web 服务的 [Java 安全框架](https://github.com/pac4j/pac4j)。
 
+<InArticleAdsense
+    data-ad-client="ca-pub-8380975615223941"
+    data-ad-slot="9428292757">
+</InArticleAdsense>
+
 适用于大多数框架/工具（实现）：
 
 - [JEE](https://github.com/pac4j/j2e-pac4j)
