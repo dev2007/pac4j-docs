@@ -147,7 +147,7 @@ defaultCallbackLogic.setClient("FacebookClient");
 凭据的提取由 [CredentialsExtractor](https://github.com/pac4j/pac4j/blob/master/pac4j-core/src/main/java/org/pac4j/core/credentials/extractor/CredentialsExtractor.java) 完成，而凭据验证由 [Authenticator](https://github.com/pac4j/pac4j/blob/master/pac4j-core/src/main/java/org/pac4j/core/credentials/authenticator/Authenticator.java) 确保|
 |`Optional<UserProfile> getUserProfile(Credentials credentials, WebContext context, SessionStore sessionStore)`|它构建经过身份验证的用户 profile。<br/> 已验证用户 profile 的创建由 [ProfileCreator](https://github.com/pac4j/pac4j/blob/master/pac4j-core/src/main/java/org/pac4j/core/profile/creator/ProfileCreator.java) 执行|
 |`Optional<UserProfile> renewUserProfile(UserProfile profile, WebContext context, SessionStore sessionStore)`|它返回更新的用户 profile|
-|`Optional<RedirectionAction> getLogoutAction(WebContext context, SessionStore sessionStore, UserProfile currentProfile, String targetUrl)`|它返回重定向操作以调用身份提供者登出。<br/>注销重定向操作计算由 [LogoutActionBuilder](https://github.com/pac4j/pac4j/blob/master/pac4j-core/src/main/java/org/pac4j/core/logout/LogoutActionBuilder.java) 完成|
+|`Optional<RedirectionAction> getLogoutAction(WebContext context, SessionStore sessionStore, UserProfile currentProfile, String targetUrl)`|它返回重定向操作以调用身份提供者注销。<br/>注销重定向操作计算由 [LogoutActionBuilder](https://github.com/pac4j/pac4j/blob/master/pac4j-core/src/main/java/org/pac4j/core/logout/LogoutActionBuilder.java) 完成|
 
 客户端通常使用默认子组件填充：`RedirectionActionBuilder`、`CredentialExtractor`、`ProfileCreator`、`LogoutActionBuilder` 和 `Authenticator`，但必须明确定义 `Authenticator` 的 HTTP 客户端除外。当然，子组件还可以针对各种[定制](/customizations.html)进行更改。
 

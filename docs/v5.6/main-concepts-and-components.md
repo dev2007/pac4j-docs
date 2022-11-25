@@ -10,6 +10,6 @@
 8. [会话存储（session store）](/v5.6/session-store.html)是特定于 *pac4j* 实现的 HTTP 会话的抽象
 9. “[安全过滤器（security filter）](/v5.6/how-to-implement-pac4j-for-a-new-framework.html#保护-url)”（或任何用于拦截 HTTP 请求的机制）根据客户端和授权者配置，通过检查用户是否经过认证以及授权是否有效来保护 URL。如果用户未通过认证，则会对直接客户端执行认证，或对间接客户端启动登录流程。
 10. “[回调端点（callback endpoint）](/v5.6/how-to-implement-pac4j-for-a-new-framework.html#处理间接客户端回调)”完成间接客户端的登录流程。
-11. “[登出端点（logout endpoint）](/v5.6/how-to-implement-pac4j-for-a-new-framework.html#退出)”处理应用程序和/或身份服务器登出
+11. “[注销端点（logout endpoint）](/v5.6/how-to-implement-pac4j-for-a-new-framework.html#退出)”处理应用程序和/或身份服务器注销
 
 > [原文链接](https://www.pac4j.org/5.6.x/docs/main-concepts-and-components.html)
