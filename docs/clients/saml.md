@@ -353,6 +353,137 @@ final SAML2Configuration cfg = new SAML2Configuration("resource:samlKeystore.jks
 'SingleLogoutServiceBinding' => array('urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect', 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST'),
 ```
 
+还需要将 SP 的 EntityID 注册到文件 **metadata/saml20-sp-remote.php**。
 
+```php
+$metadata['test.pac4j'] = array(
+ 'AssertionConsumerService' => 'http://localhost:8080/callback?client_name=SAML2Client',
+...
+```
+
+#### 元数据
+
+SimpleSAMLphp 在 `http://idp-domain/simplesamlphp/saml2/idp/metadata.php?output=xhtml` 上暴露了它的 IdP 元数据。你可以在 `<md:EntitiesDescriptor ...` 标签中包装这个文件，以生成 **idp-metadata.xml** 文件。
+
+```xml
+<?xml version="1.0"?>
+<md:EntitiesDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+    <md:EntityDescriptor entityID="http://idp-domain/simplesamlphp/saml2/idp/metadata.php">
+      <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+        <md:KeyDescriptor use="signing">
+          <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+            <ds:X509Data>
+              <ds:X509Certificate>MII...</ds:X509Certificate>
+            </ds:X509Data>
+          </ds:KeyInfo>
+        </md:KeyDescriptor>
+        <md:KeyDescriptor use="encryption">
+          <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+            <ds:X509Data>
+              <ds:X509Certificate>MII...</ds:X509Certificate>
+            </ds:X509Data>
+          </ds:KeyInfo>
+        </md:KeyDescriptor>
+        <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="http://idp-domain/simplesamlphp/saml2/idp/SingleLogoutService.php"/>
+        <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="http://idp-domain/simplesamlphp/saml2/idp/SingleLogoutService.php"/>
+        <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="http://idp-domain/simplesamlphp/saml2/idp/SSOService.php"/>
+        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="http://idp-domain/simplesamlphp/saml2/idp/SSOService.php"/>
+      </md:IDPSSODescriptor>
+    </md:EntityDescriptor>
+</md:EntitiesDescriptor>
+```
+
+## 7）自定义 OpenSAML 启动
+
+在幕后，OpenSAML 使用单一注册表保存其配置（构造器、整理器、解析器等）。虽然 *pac4j* 附带了此配置的默认值（参阅 `org.pac4j.saml.util.configuration$DefaultConfigurationManager`），但开发人员重写此配置可能更有用。
+
+*Pac4j* 使用 Java 服务提供程序查找配置类并启动 OpenSAML 库。它将加载它可以在类路径上找到的 `org.pac4j.saml.util.Configuration` 的所有实现，并使用具有 `javax.annotation.Priority` 值的实现。
+
+要使用自定义配置，必须将具有以下内容的 jar 添加到 classpath 中：
+
+- 实现 `org.pac4j.saml.util.Configuration`。此实现具有 `javax.annotation.Priority` 注解，代表优先级。最小值是最终将使用的配置。默认实现的有效优先级为 `100`。通用提供程序可能应该使用 `50`，而最终用户实现程序应该使用 `1`。例如：
+
+```java
+  @Priority(100)
+  public static class DefaultConfigurationManager implements ConfigurationManager {
+      @Override
+      public void configure() {
+          XMLObjectProviderRegistry registry;
+          synchronized (ConfigurationService.class) {
+              registry = ConfigurationService.get(XMLObjectProviderRegistry.class);
+              if (registry == null) {
+                  registry = new XMLObjectProviderRegistry();
+                  ConfigurationService.register(XMLObjectProviderRegistry.class, registry);
+              }
+          }
+
+          try {
+              InitializationService.initialize();
+          } catch (final InitializationException e) {
+              throw new RuntimeException("Exception initializing OpenSAML", e);
+          }
+
+          ParserPool parserPool = initParserPool();
+          registry.setParserPool(parserPool);
+      }
+
+      private static ParserPool initParserPool() {
+
+          try {
+              BasicParserPool parserPool = new BasicParserPool();
+              parserPool.setMaxPoolSize(100);
+              parserPool.setCoalescing(true);
+              parserPool.setIgnoreComments(true);
+              parserPool.setNamespaceAware(true);
+              parserPool.setExpandEntityReferences(false);
+              parserPool.setXincludeAware(false);
+              parserPool.setIgnoreElementContentWhitespace(true);
+
+              final Map<String, Object> builderAttributes = new HashMap<String, Object>();
+              parserPool.setBuilderAttributes(builderAttributes);
+
+              final Map<String, Boolean> features = new HashMap<>();
+              features.put("http://apache.org/xml/features/disallow-doctype-decl", Boolean.TRUE);
+              features.put("http://apache.org/xml/features/validation/schema/normalized-value", Boolean.FALSE);
+              features.put("http://javax.xml.XMLConstants/feature/secure-processing", Boolean.TRUE);
+              features.put("http://xml.org/sax/features/external-general-entities", Boolean.FALSE);
+              features.put("http://xml.org/sax/features/external-parameter-entities", Boolean.FALSE);
+
+              parserPool.setBuilderFeatures(features);
+              parserPool.initialize();
+              return parserPool;
+          } catch (final ComponentInitializationException e) {
+              throw new RuntimeException("Exception initializing parserPool", e);
+          }
+      }
+  }
+  ```
+
+- `/META-INF/services/org.pac4j.saml.util.ConfigurationManager` 文件。此文件应具有 `org.pac4j.saml.util.Configuratio` 实现的完全限定类名。
+
+更多信息，参阅[https://docs.oracle.com/javase/tutorial/ext/basics/spi.html](https://docs.oracle.com/javase/tutorial/ext/basics/spi.html)。
+
+## 8）SAML 消息存储
+
+消息存储是 pac4j 用来跟踪正在进行的请求和传入响应的抽象。
+
+### HttpSessionStore
+
+此实现使用 HttpSession 作为底层数据存储。
+
+### HazelcastSAMLMessageStore
+
+此实现使用 Hazelcast 作为底层数据存储。
+
+它要求：
+
+- 附加依赖
+
+```java
+com.hazelcast hazelcast ${hazelcast.version} true
+```
+
+- 将 HazelcastInstance 对象传递给构造函数
 
 > [原文链接](https://www.pac4j.org/docs/clients/saml.html)

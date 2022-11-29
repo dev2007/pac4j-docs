@@ -52,7 +52,8 @@ module.exports = {
             title: '客户端',
             path: '/clients',
             children: [
-              '/clients/oauth'
+              '/clients/oauth',
+              '/clients/saml'
             ]
           }
         ]
