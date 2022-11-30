@@ -177,4 +177,4 @@ myClient.setProfileFactoryWhenNotAuthenticated(p -> AnonymousProfile.INSTANCE);
 在这种情况下，除非定义了合适的授权者，否则将授予整个 web 会话对所有安全资源的访问权限。
 :::
 
-> [原文链接](https://www.pac4j.org/docs/clients.html)
+> [原文链接](https://www.pac4j.org/5.7.x/docs/clients.html)

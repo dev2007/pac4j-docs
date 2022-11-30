@@ -12,4 +12,4 @@
 10. “[回调端点（callback endpoint）](/how-to-implement-pac4j-for-a-new-framework.html#处理间接客户端回调)”完成间接客户端的登录流程。
 11. “[注销端点（logout endpoint）](/how-to-implement-pac4j-for-a-new-framework.html#退出)”处理应用程序和/或身份服务器注销
 
-> [原文链接](https://www.pac4j.org/docs/main-concepts-and-components.html)
+> [原文链接](https://www.pac4j.org/5.7.x/docs/main-concepts-and-components.html)

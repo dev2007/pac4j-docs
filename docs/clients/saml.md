@@ -486,4 +486,4 @@ com.hazelcast hazelcast ${hazelcast.version} true
 
 - 将 HazelcastInstance 对象传递给构造函数
 
-> [原文链接](https://www.pac4j.org/docs/clients/saml.html)
+> [原文链接](https://www.pac4j.org/5.7.x/docs/clients/saml.html)

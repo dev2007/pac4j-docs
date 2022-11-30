@@ -53,7 +53,8 @@ module.exports = {
             path: '/clients',
             children: [
               '/clients/oauth',
-              '/clients/saml'
+              '/clients/saml',
+              '/clients/cas'
             ]
           }
         ]
