@@ -54,7 +54,8 @@ module.exports = {
             children: [
               '/clients/oauth',
               '/clients/saml',
-              '/clients/cas'
+              '/clients/cas',
+              '/clients/openid-connect'
             ]
           }
         ]
