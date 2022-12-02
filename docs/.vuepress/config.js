@@ -55,7 +55,8 @@ module.exports = {
               '/clients/oauth',
               '/clients/saml',
               '/clients/cas',
-              '/clients/openid-connect'
+              '/clients/openid-connect',
+              '/clients/http'
             ]
           }
         ]
