@@ -56,7 +56,8 @@ module.exports = {
               '/clients/saml',
               '/clients/cas',
               '/clients/openid-connect',
-              '/clients/http'
+              '/clients/http',
+              '/clients/google-app-engine'
             ]
           }
         ]
