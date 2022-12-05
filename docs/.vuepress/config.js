@@ -57,7 +57,8 @@ module.exports = {
               '/clients/cas',
               '/clients/openid-connect',
               '/clients/http',
-              '/clients/google-app-engine'
+              '/clients/google-app-engine',
+              '/clients/kerberos'
             ]
           }
         ]
