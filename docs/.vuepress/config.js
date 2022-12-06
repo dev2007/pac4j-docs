@@ -4,7 +4,7 @@ module.exports = {
   head: [
     ['link', { rel: 'icon', href: '/favicon.ico' }],
     ['meta', { name: 'keywords', content: 'pac4j,pac4j 中文文档,shiro,spring security,oauth,oauth2.0,saml,saml2.0,cas,cas server,oidc,openid connector,openid,jwt,http,gae,kerberos,profile,认证,授权,登录,鉴权,RBAC,permssion,role,sa-token,' }],
-    ['script',{src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8380975615223941',crossorigin: 'anonymous'}]
+    ['script', { src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8380975615223941', crossorigin: 'anonymous' }]
   ],
   base: '/',
   markdown: {
@@ -60,6 +60,33 @@ module.exports = {
               '/clients/google-app-engine',
               '/clients/kerberos'
             ]
+          },
+          {
+            title: '认证器',
+            path: '/authenticators',
+            children: [
+              '/authenticators/ldap',
+              ['/authenticators/sql', 'SQL'],
+              '/authenticators/jwt',
+              '/authenticators/mongodb',
+              '/authenticators/couchdb',
+              '/authenticators/ip',
+              '/authenticators/rest',
+            ]
+          },
+          {
+            title: '授权器',
+            path: '/authorizers',
+            children:[
+              '/authorizers/profile-authorizers',
+              '/authorizers/web-authorizers'
+            ]
+          },
+          '/matchers',
+          {
+            title: '安全配置',
+            path: '/config',
+            children:[]
           }
         ]
       },
