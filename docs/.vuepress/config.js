@@ -86,7 +86,9 @@ module.exports = {
           {
             title: '安全配置',
             path: '/config',
-            children:[]
+            children:[
+              '/config-module'
+            ]
           }
         ]
       },
