@@ -89,6 +89,15 @@ module.exports = {
             children:[
               '/config-module'
             ]
+          },
+          {
+            title: 'Web  组件',
+            path: '/web-components',
+            children:[
+              '/security-filter',
+              '/callback-endpoint',
+              '/logout-endpoint'
+            ]
           }
         ]
       },
