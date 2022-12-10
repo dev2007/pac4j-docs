@@ -98,6 +98,27 @@ module.exports = {
               '/callback-endpoint',
               '/logout-endpoint'
             ]
+          },
+          {
+            title: '用户画像',
+            path: '/user-profile',
+            children: [
+              '/profile-manager'
+            ]
+          },
+          {
+            title: 'Web 上下文',
+            path: '/web-context',
+            children: [
+              '/http-action-adapter'
+            ]
+          },
+          {
+            title: '会话存储',
+            path: '/sessiono-store',
+            children: [
+              '/store'
+            ]
           }
         ]
       },
