@@ -67,14 +67,14 @@ map.put("name", "name");  //default String
 client.setProfileAttrs(map);
 ```
 
-你需要定义要从用户画像获取的所有属性。你可以只定义属性名称（`name`）或属性名称以及关联的转换器（`Boolean|is_admin`）。
+你需要定义要从用户配置文件获取的所有属性。你可以只定义属性名称（`name`）或属性名称以及关联的转换器（`Boolean|is_admin`）。
 目前，支持以下转换器：`Integer`、`Boolean`、`Color`、`Gender`、`Locale`、`Long`、`URI` 和 `String`（默认）。
 
 ### b）特定客户端
 
 默认情况下，已有许多客户端可以用于很多认证提供者登录：
 
-|认证提供者|客户端|用户画像|
+|认证提供者|客户端|用户配置文件|
 |--|--|--|
 |[BitBucket](https://bitbucket.org/)|[BitbucketClient](https://github.com/pac4j/pac4j/blob/master/pac4j-oauth/src/main/java/org/pac4j/oauth/client/BitbucketClient.java)|[BitbucketProfile](https://github.com/pac4j/pac4j/blob/master/pac4j-oauth/src/main/java/org/pac4j/oauth/profile/bitbucket/BitbucketProfile.java)|
 |[a CAS server using the OAuth protocol](https://apereo.github.io/cas/4.2.x/installation/OAuth-OpenId-Authentication.html)|[CasOAuthWrapperClient](https://github.com/pac4j/pac4j/blob/master/pac4j-oauth/src/main/java/org/pac4j/oauth/client/CasOAuthWrapperClient.java)|[CasOAuthWrapperProfile](https://github.com/pac4j/pac4j/blob/master/pac4j-oauth/src/main/java/org/pac4j/oauth/profile/casoauthwrapper/CasOAuthWrapperProfile.java)|

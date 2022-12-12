@@ -159,7 +159,7 @@ CasRestFormClient casRestClient = new CasRestFormClient(casConfig);
 
 通过 `CasRestBasicAuthClient`/`CasRestFormClient` 成功验证后，将创建 `CasRestProfile`。
 
-此画像（profile）没有属性，因为它是通过在 REST API 上验证 CAS 凭据而构建的。你必须请求服务票据并对其进行验证，才能获得具有属性的 `CasProfile`（因为使用的默认协议是 CAS v3.0）。
+此配置文件没有属性，因为它是通过在 REST API 上验证 CAS 凭据而构建的。你必须请求服务票据并对其进行验证，才能获得具有属性的 `CasProfile`（因为使用的默认协议是 CAS v3.0）。
 
 事实上，使用 `CasRestProfile`，你将能够：
 

@@ -1,4 +1,4 @@
-# 会话存储器
+# 会话存储
 
 虽然 [WebContext](/web-context.html) 与 HTTP 请求和响应相关，但 [SessionStore](https://github.com/pac4j/pac4j/blob/master/pac4j-core/src/main/java/org/pac4j/core/context/session/SessionStore.java) 是处理 web 会话的抽象。
 

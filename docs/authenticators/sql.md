@@ -54,10 +54,10 @@ ALTER TABLE users
 
 可以通过 `setUsersTable` 方法更改数据库中表的名称。也可以使用 `setIdAttribute`、`setUsernameAttribute` 和 `setPasswordAttribute` 方法设置 id、用户名和密码列。
 
-可以通过两种方式在数据库中管理用户画像的属性：
+可以通过两种方式在数据库中管理用户配置文件的属性：
 
 - 或者每个属性都显式保存在特定列中，并且所有这些列都通过 `setAttributes` 方法定义为用逗号分隔的列名列表（这是自 1.9 版以来存在的传统模式）
-- 或者将整个用户画像序列化并保存在 `serializedprofile` 列中。
+- 或者将整个用户配置文件序列化并保存在 `serializedprofile` 列中。
 
 此 `DbProfileService` 支持使用特定的 [PasswordEncoder](/authenticators.html#_2-PasswordEncoder) 对数据库中的密码进行编码。
 

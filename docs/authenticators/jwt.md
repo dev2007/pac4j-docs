@@ -75,10 +75,10 @@ jwtAuthenticator.validate(new TokenCredentials(token, "myclient"));
 
 `JwtAuthenticator` 还提供两种方便的方法来处理 JWT：
 
-- `CommonProfile validateToken(final String token)` 校验令牌并直接返回一个 *pac4j* 用户画像。
+- `CommonProfile validateToken(final String token)` 校验令牌并直接返回一个 *pac4j* 用户配置文件。
 - `Map<String, Object> validateTokenAndGetClaims(final String token)` 校验令牌并直接返回一组声明/属性，该方法与 *pac4j* 配置文件完全无关。
 
-## c）用户画像
+## c）用户配置文件
 
 - 如果所提供的 JWT 是使用 `JwtGenerator` 从 *pac4j* profile（例如 `FacebookProfile`）生成的，`JwtAuthenticator` 将重新创建相同的 profile
 - 如果所提供的 JWT 是用任何其他方式创建的，`JwtAuthenticator` 将创建 `JwtProfile`。

@@ -25,7 +25,7 @@
 
 对于直接 HTTP 客户端，每个请求都会传递和验证凭据，这可能会导致性能问题（对底层认证系统的调用过多）。因此，强烈建议使用缓存。
 
-这可以使用 [LocalCachingAuthenticator](https://github.com/pac4j/pac4j/blob/master/pac4j-core/src/main/java/org/pac4j/core/credentials/authenticator/LocalCachingAuthenticator.java) 类（在 `pac4j` 核心模块中可用）来完成，该类根据提供的凭据缓存生成的用户画像，从而可以在认证系统上进行备用凭据验证。
+这可以使用 [LocalCachingAuthenticator](https://github.com/pac4j/pac4j/blob/master/pac4j-core/src/main/java/org/pac4j/core/credentials/authenticator/LocalCachingAuthenticator.java) 类（在 `pac4j` 核心模块中可用）来完成，该类根据提供的凭据缓存生成的用户配置文件，从而可以在认证系统上进行备用凭据验证。
 
 **示例**：
 
@@ -63,12 +63,12 @@ LocalCachingAuthenticator authent = new LocalCachingAuthenticator(new JwtAuthent
 
 ## 3）`ProfileCreator`
 
-事实上，在 HTTP 客户端中，除了验证凭据（`Authenticator`）的方式之外，还可以定义通过 [ProfileCreator](https://github.com/pac4j/pac4j/blob/master/pac4j-core/src/main/java/org/pac4j/core/profile/creator/ProfileCreator.java) 创建用户画像的方式。
+事实上，在 HTTP 客户端中，除了验证凭据（`Authenticator`）的方式之外，还可以定义通过 [ProfileCreator](https://github.com/pac4j/pac4j/blob/master/pac4j-core/src/main/java/org/pac4j/core/profile/creator/ProfileCreator.java) 创建用户配置文件的方式。
 
 在实践中：
 
-- 所有可用的认证器在验证凭据时创建特定的用户画像，并将其保存在当前凭据中
-- 默认情况下，所有客户端都配置了 [AuthenticatorProfileCreator](https://github.com/pac4j/pac4j/blob/master/pac4j-core/src/main/java/org/pac4j/core/profile/creator/AuthenticatorProfileCreator.java)，后者从当前凭据中检索用户画像并将其返回。
+- 所有可用的认证器在验证凭据时创建特定的用户配置文件，并将其保存在当前凭据中
+- 默认情况下，所有客户端都配置了 [AuthenticatorProfileCreator](https://github.com/pac4j/pac4j/blob/master/pac4j-core/src/main/java/org/pac4j/core/profile/creator/AuthenticatorProfileCreator.java)，后者从当前凭据中检索用户配置文件并将其返回。
 
 因此，即使提供特定的 `ProfileCreator` 是可能的，它也可以开箱即用。
 

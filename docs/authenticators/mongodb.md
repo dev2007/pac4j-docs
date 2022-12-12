@@ -37,7 +37,7 @@ MongoProfileService mongoProfileService = new MongoProfileService(mongoClient);
 用户在 `users` 集合中的 `users` 数据库中进行管理，但两者都可以通过 `setUsersDatabase(String)` 和 `setUsersCollection(String)` 方法进行更改。以及使用 `setIdAttribute`、`setUsernameAttribute` 和 `setPasswordAttribute` 方法设置 id、用户名和密码属性名称。
 
 - 每个属性都显式保存在特定属性中，并且所有这些属性都通过 `setAttributes` 方法定义为用逗号分隔的名称列表（这是自 1.9 版以来存在的传统模式）
-- 或者将整个用户画像序列化并保存在 `serializedprofile` 属性中。
+- 或者将整个用户配置文件序列化并保存在 `serializedprofile` 属性中。
 
 ::: danger 注意
 从 3.x 系列中的 v3.9.0、4.x 系列中的 v4.2.0 和 v5.0 开始，`serializedprofile` 是用 JSON 编写的，而不是使用 Java 序列化。

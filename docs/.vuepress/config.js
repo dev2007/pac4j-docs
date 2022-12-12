@@ -47,51 +47,57 @@ module.exports = {
         ],
         sidebar: [
           ["/", "PAC4J 介绍"],
-          ["/main-concepts-and-components", "主要概念和组件"],
+          ["/main-concepts-and-components", "1）主要概念和组件"],
           {
-            title: '客户端',
-            path: '/clients',
-            children: [
-              '/clients/oauth',
-              '/clients/saml',
-              '/clients/cas',
-              '/clients/openid-connect',
-              '/clients/http',
-              '/clients/google-app-engine',
-              '/clients/kerberos'
+            title: '2）认证机制',
+            path: '',
+            children:[
+              {
+                title: '客户端',
+                path: '/clients',
+                children: [
+                  '/clients/oauth',
+                  '/clients/saml',
+                  '/clients/cas',
+                  '/clients/openid-connect',
+                  '/clients/http',
+                  '/clients/google-app-engine',
+                  '/clients/kerberos'
+                ]
+              },
+              {
+                title: '认证器',
+                path: '/authenticators',
+                children: [
+                  '/authenticators/ldap',
+                  ['/authenticators/sql', 'SQL'],
+                  '/authenticators/jwt',
+                  '/authenticators/mongodb',
+                  '/authenticators/couchdb',
+                  '/authenticators/ip',
+                  '/authenticators/rest',
+                ]
+              }
             ]
           },
           {
-            title: '认证器',
-            path: '/authenticators',
-            children: [
-              '/authenticators/ldap',
-              ['/authenticators/sql', 'SQL'],
-              '/authenticators/jwt',
-              '/authenticators/mongodb',
-              '/authenticators/couchdb',
-              '/authenticators/ip',
-              '/authenticators/rest',
-            ]
-          },
-          {
-            title: '授权器',
+            title: '3）授权机制：授权器',
             path: '/authorizers',
             children:[
               '/authorizers/profile-authorizers',
               '/authorizers/web-authorizers'
             ]
           },
-          '/matchers',
+          ['/matchers','4）匹配器'],
           {
-            title: '安全配置',
+            title: '5）安全配置',
             path: '/config',
             children:[
               '/config-module'
             ]
           },
           {
-            title: 'Web  组件',
+            title: '6）Web  组件',
             path: '/web-components',
             children:[
               '/security-filter',
@@ -100,25 +106,38 @@ module.exports = {
             ]
           },
           {
-            title: '用户画像',
+            title: '7）用户配置文件',
             path: '/user-profile',
             children: [
               '/profile-manager'
             ]
           },
           {
-            title: 'Web 上下文',
+            title: '8）Web 上下文',
             path: '/web-context',
             children: [
               '/http-action-adapter'
             ]
           },
           {
-            title: '会话存储',
-            path: '/sessiono-store',
+            title: '9）会话存储',
+            path: '/session-store',
             children: [
               '/store'
             ]
+          },
+          {
+            title: '10）发行说明',
+            path: '/release-notes',
+            children: [
+              ['https://www.pac4j.org/5.7.x/docs/backward-compatibility.html','向后兼容性']
+            ]
+          },
+          ['/authentication-flows','11）认证流'],
+          ['/customizations','12）自定义'],
+          {
+            title: '13）JavaDoc',
+            path: 'https://www.javadoc.io/doc/org.pac4j/pac4j-core/5.7.0/index.html'
           }
         ]
       },

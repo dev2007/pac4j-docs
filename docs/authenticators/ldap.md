@@ -67,10 +67,10 @@ LdapProfileService ldapProfileService  = new LdapProfileService(connectionFactor
 
 基本用户 DN 可以通过 `setUsersDn` 方法更改。以及使用 `setIdAttribute`、`setUsernameAttribute` 和 `setPasswordAttribute` 方法设置 id、用户名和密码等 LDAP 属性名称。
 
-可以通过两种方式在 LDAP 中管理用户画像的属性：
+可以通过两种方式在 LDAP 中管理用户配置文件的属性：
 
 - 每个属性都显式映射到一个特定的 LDAP 属性中，并且所有这些属性都通过 `setAttributes` 方法定义为用逗号分隔的名称列表（这是自 1.9 版以来存在的传统模式）
-- 或者将整个用户画像序列化并保存在 `serializedprofile` LDAP 属性中。
+- 或者将整个用户配置文件序列化并保存在 `serializedprofile` LDAP 属性中。
 
 ::: danger 注意
 从 3.x 系列中的 v3.9.0、4.x 系列中的 v4.2.0 和 v5.0 开始，`serializedprofile` 是用 JSON 编写的，而不是使用 Java 序列化。

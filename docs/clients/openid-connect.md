@@ -82,7 +82,7 @@ config.setUseNonce(true);
 
 ### b）直接客户端
 
-对于直接客户端（web 服务），你可以从任何 OpenID Connect 认证提供者获取 access token（访问令牌），并在请求中使用该令牌获取用户画像。
+对于直接客户端（web 服务），你可以从任何 OpenID Connect 认证提供者获取 access token（访问令牌），并在请求中使用该令牌获取用户配置文件。
 
 为此，[HeaderClient](https://github.com/pac4j/pac4j/blob/master/pac4j-http/src/main/java/org/pac4j/http/client/direct/HeaderClient.java) 将与 `oidcClient.getProfileCreator()` 一起使用。
 

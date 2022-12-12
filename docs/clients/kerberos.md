@@ -24,7 +24,7 @@ Kerberos 客户端需要定义[认证器](/authenticators.html)来处理凭据�
 
 |期望行为|客户端|
 |--|--|
-|**Web 浏览器**（Firefox/Safari/IE）票证验证后，它将用户画像存储在 session 中|[IndirectKerberosClient](https://github.com/pac4j/pac4j/blob/master/pac4j-kerberos/src/main/java/org/pac4j/kerberos/client/indirect/IndirectKerberosClient.java)<br/>（失败时，它发送带有 `WWW-Authenticate:Negotiate` 头的 HTTP 401，要求浏览器提供 Kerberos/SPNEGO 凭据）|
+|**Web 浏览器**（Firefox/Safari/IE）票证验证后，它将用户配置文件存储在 session 中|[IndirectKerberosClient](https://github.com/pac4j/pac4j/blob/master/pac4j-kerberos/src/main/java/org/pac4j/kerberos/client/indirect/IndirectKerberosClient.java)<br/>（失败时，它发送带有 `WWW-Authenticate:Negotiate` 头的 HTTP 401，要求浏览器提供 Kerberos/SPNEGO 凭据）|
 |**无状态的 Web 服务**|[DirectKerberosClient](https://github.com/pac4j/pac4j/blob/master/pac4j-kerberos/src/main/java/org/pac4j/kerberos/client/direct/DirectKerberosClient.java)<br/>凭证可以作为请求的 HTTP 头预先提供：<br/>Authentication: Negotiate SomeBase64EncKerberosTicket <br/>（如果未提供，默认策略是发送带有 `WWW-Authenticate: Negotiate` 头的 HTTP 401，要求远程提供 Kerberos/SPNEGO 凭据）|
 
 **示例**：
