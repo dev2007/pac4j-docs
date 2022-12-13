@@ -130,7 +130,7 @@ module.exports = {
             title: '10）发行说明',
             path: '/release-notes',
             children: [
-              ['https://www.pac4j.org/5.7.x/docs/backward-compatibility.html','向后兼容性']
+              '/backward-compatibility'
             ]
           },
           ['/authentication-flows','11）认证流'],
