@@ -2,6 +2,11 @@
 
 必须通过 [Config](https://github.com/pac4j/pac4j/blob/master/pac4j-core/src/main/java/org/pac4j/core/config/Config.java) 对象定义安全配置。
 
+<InArticleAdsense
+    data-ad-client="ca-pub-8380975615223941"
+    data-ad-slot="9428292757">
+</InArticleAdsense>
+
 ## 1）基础
 
 它收集了所需的：

@@ -10,6 +10,11 @@
 - [谷歌应用引擎（Google App Engine）支持](/clients/google-app-engine.html)
 - [Kerberos (SPNEGO Negotiate)协议](/clients/kerberos.html)
 
+<InArticleAdsense
+    data-ad-client="ca-pub-8380975615223941"
+    data-ad-slot="9428292757">
+</InArticleAdsense>
+
 虽然大多数客户端都是独立可用的，但 HTTP 客户端需要定义一个[认证器（Authenticator）](/authenticators.html) 来处理凭证校验。
 
 客户端（如授权者和匹配者）通常在[安全配置（security configuration）](/config.html)中定义。

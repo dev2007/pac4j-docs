@@ -10,6 +10,11 @@
 - 记住我 （`isRemembered()`）
 - 一个关联标识符（`getLinkedId()`）
 
+<InArticleAdsense
+    data-ad-client="ca-pub-8380975615223941"
+    data-ad-slot="9428292757">
+</InArticleAdsense>
+
 事实上，配置文件层次结构的根类是 [BasicUserProfile](https://github.com/pac4j/pac4j/blob/master/pac4j-core/src/main/java/org/pac4j/core/profile/BasicUserProfile.java)。它实现 [UserProfile](https://github.com/pac4j/pac4j/blob/master/pac4j-core/src/main/java/org/pac4j/core/profile/UserProfile.java) 接口。
 
 这适用于需要最小用户配置文件的特定用例。

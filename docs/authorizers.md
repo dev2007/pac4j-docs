@@ -12,7 +12,12 @@
 有如下可用的授权器：
 
 - [角色](/authorizers/profile-authorizers.html#_1-角色)——[匿名/记住我/（完全）授权](/authorizers/profile-authorizers.html#_2-授权级别)——[Profile 类型、属性](/authorizers/profile-authorizers.html#_3-其他)
-CSRF - IP address, HTTP method
+ CSRF - IP address, HTTP method
+
+<InArticleAdsense
+    data-ad-client="ca-pub-8380975615223941"
+    data-ad-slot="9428292757">
+</InArticleAdsense>
 
 ## 默认授权器名称
 

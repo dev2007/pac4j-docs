@@ -18,4 +18,9 @@
 
 它们通过相应的 [SessionStoreFactory](https://github.com/pac4j/pac4j/blob/master/pac4j-core/src/main/java/org/pac4j/core/context/session/SessionStoreFactory.java) 提供。
 
+<InArticleAdsense
+    data-ad-client="ca-pub-8380975615223941"
+    data-ad-slot="9428292757">
+</InArticleAdsense>
+
 > [原文链接](https://www.pac4j.org/docs/session-store.html)

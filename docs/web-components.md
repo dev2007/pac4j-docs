@@ -8,4 +8,9 @@
 
 参阅[如何为新框架/工具实现 *pac4j*](/how-to-implement-pac4j-for-a-new-framework.html)，以获取更多技术细节。
 
+<InArticleAdsense
+    data-ad-client="ca-pub-8380975615223941"
+    data-ad-slot="9428292757">
+</InArticleAdsense>
+
 > [原文链接](https://www.pac4j.org/docs/web-components.html)

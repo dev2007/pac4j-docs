@@ -13,6 +13,11 @@
 
 例如，JEE 应用程序有 [JEEContext](https://github.com/pac4j/pac4j/blob/master/pac4j-core/src/main/java/org/pac4j/core/context/JEEContext.java)，Play 应用程序有 `PlayWebContext` 等。
 
+<InArticleAdsense
+    data-ad-client="ca-pub-8380975615223941"
+    data-ad-slot="9428292757">
+</InArticleAdsense>
+
 ## 2）`WebContextFactory`
 
 对于给定的 framework/*pac4j* 实现，通常会反复实例化相同类型的 web 上下文。不过，当你想要实例化另一个 `WebContext` 时，也存在一些边缘情况。
