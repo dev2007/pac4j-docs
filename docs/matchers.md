@@ -2,9 +2,9 @@
 
 ## 1）定义
 
-“[安全过滤器](/security-filter.html)”负责保护 URL、请求认证和可选的授权。
+“[安全过滤器](/v5.7/security-filter.html)”负责保护 URL、请求认证和可选的授权。
 
-在某些情况下，你可能希望绕过此“安全过滤器”，这可以使用 **matcher** 参数来完成，该参数通常是匹配器名称的列表。匹配器通常在[安全配置](/config.html)中定义。
+在某些情况下，你可能希望绕过此“安全过滤器”，这可以使用 **matcher** 参数来完成，该参数通常是匹配器名称的列表。匹配器通常在[安全配置](/v5.7/config.html)中定义。
 
 匹配器还可以用于始终在 URL 上应用一些逻辑，例如添加一些安全头。
 
@@ -35,4 +35,4 @@
 
 这些短名称在 [DefaultMatchers](https://github.com/pac4j/pac4j/blob/master/pac4j-core/src/main/java/org/pac4j/core/matching/matcher/DefaultMatchers.java) 中定义为常量。你可以用同名的自己的匹配器重载它们。
 
-> [原文链接](https://www.pac4j.org/5.7.x/docs/matchers.html)
+> [原文链接](https://www.pac4j.org/docs/matchers.html)

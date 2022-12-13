@@ -35,27 +35,4 @@
 
 使用[注销端点](/logout-endpoint.html)，你可以触发本地和中央注销过程。然而，如果在认证提供程者中发生了“单点注销”过程，则该回调端点将接收注销请求（带有某些会话密钥）以销毁应用程序会话。
 
-## 4）高级选项
-
-高级选项可在以下地方设置：
-
-- `Config` 级别
-- 直接在安全过滤器级别，通过 `setter`、构造函数、`servlet` 参数等……取决于 *pac4j* 实现：
-
-### a）sessionStore
-
-你可以定义一个特定的 [SessionStore](/session-store.html) 来替代 *pac4j* 默认实现。
-
-### b）httpActionAdapter
-
-你可以定义一个特定的 [HttpActionAdapter](/http-action-adapter.html) 来替代 *pac4j* 默认实现。
-
-### c）callbackLogic
-
-你可以定义特定的 `CallbackLogic` 来替代默认的 `DefaultCallbackLogic`。
-
-### d）webContextFactory
-
-你可以定义特定的 [WebContextFactory](/web-context.html)，来替代 *pac4j* 默认实现。
-
-> [原文链接](https://www.pac4j.org/5.7.x/docs/callback-endpoint.html)
+> [原文链接](https://www.pac4j.org/docs/callback-endpoint.html)

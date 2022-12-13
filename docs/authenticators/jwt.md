@@ -110,4 +110,4 @@ generator.setExpirationTime(new Date());
 
 然后，你将能够构建适当的签名或加密配置。
 
-> [原文链接](https://www.pac4j.org/5.7.x/docs/authenticators/jwt.html)
+> [原文链接](https://www.pac4j.org/docs/authenticators/jwt.html)

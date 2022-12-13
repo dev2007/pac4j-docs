@@ -39,4 +39,4 @@
 如果此免费开源维护政策不够，请联系[商业支持](https://www.pac4j.org/commercial-support.html)。
 :::
 
-> [原文链接](https://www.pac4j.org/5.7.x/docs/backward-compatibility.html)
+> [原文链接](https://www.pac4j.org/docs/backward-compatibility.html)

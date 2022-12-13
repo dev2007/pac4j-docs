@@ -76,4 +76,4 @@ LdapProfileService ldapProfileService  = new LdapProfileService(connectionFactor
 从 3.x 系列中的 v3.9.0、4.x 系列中的 v4.2.0 和 v5.0 开始，`serializedprofile` 是用 JSON 编写的，而不是使用 Java 序列化。
 :::
 
-> [原文链接](https://www.pac4j.org/5.7.x/docs/authenticators/ldap.html)
+> [原文链接](https://www.pac4j.org/docs/authenticators/ldap.html)

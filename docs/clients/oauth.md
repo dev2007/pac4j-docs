@@ -105,4 +105,4 @@ FacebookClient facebookClient = new FacebookClient("145278422258960", "be21409ba
 TwitterClient twitterClient = new TwitterClient("CoxUiYwQOSFDReZYdjigBA", "2kAzunH5Btc4gRSaMr7D7MkyoJ5u1VzbOOzE8rBofs");
 ```
 
-> [原文链接](https://www.pac4j.org/5.7.x/docs/clients/oauth.html)
+> [原文链接](https://www.pac4j.org/docs/clients/oauth.html)

@@ -6,4 +6,4 @@
 
 例如，有用于 JEE 应用程序的 [JEEHttpActionAdapter](https://github.com/pac4j/pac4j/blob/master/pac4j-core/src/main/java/org/pac4j/core/http/adapter/JEEHttpActionAdapter.java)、用于 Play应用程序的 `PlayHttpActionAdapter` 等。
 
-> [原文链接](https://www.pac4j.org/5.7.x/docs/http-action-adapter.html)
+> [原文链接](https://www.pac4j.org/docs/http-action-adapter.html)

@@ -2,7 +2,7 @@
 
 [HTTP 客户端](/clients/http.html)需要[认证器](https://github.com/pac4j/pac4j/blob/master/pac4j-core/src/main/java/org/pac4j/core/credentials/authenticator/Authenticator.java)来验证凭据。
 
-此 `Authenticator` 接口只有一个方法：`void validate(Credentials credentials, WebContext context, SessionStore sessionStore)`。
+此 `Authenticator` 接口只有一个方法：`Optional<Credentials> validate(Credentials credentials, WebContext context, SessionStore sessionStore)`。
 
 [凭据](https://github.com/pac4j/pac4j/blob/master/pac4j-core/src/main/java/org/pac4j/core/credentials/Credentials.java)可以有两种：
 
@@ -72,4 +72,4 @@ LocalCachingAuthenticator authent = new LocalCachingAuthenticator(new JwtAuthent
 
 因此，即使提供特定的 `ProfileCreator` 是可能的，它也可以开箱即用。
 
-> [原文链接](https://www.pac4j.org/5.7.x/docs/authenticators.html)
+> [原文链接](https://www.pac4j.org/docs/authenticators.html)

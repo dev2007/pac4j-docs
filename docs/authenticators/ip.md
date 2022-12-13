@@ -41,4 +41,4 @@ ipHeaderExtractor.setProxyIp("127.0.0.1");
 ipClient.setCredentialsExtractor(ipHeaderExtractor);
 ```
 
-> [原文链接](https://www.pac4j.org/5.7.x/docs/authenticators/ip.html)
+> [原文链接](https://www.pac4j.org/docs/authenticators/ip.html)

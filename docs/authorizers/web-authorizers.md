@@ -11,4 +11,4 @@
 - [IpRegexpAuthorizer](https://github.com/pac4j/pac4j/blob/master/pac4j-http/src/main/java/org/pac4j/http/authorization/authorizer/IpRegexpAuthorizer.java) 检查传入的 IP 地址
 - [CheckHttpMethodAuthorizer](https://github.com/pac4j/pac4j/blob/master/pac4j-core/src/main/java/org/pac4j/core/authorization/authorizer/CheckHttpMethodAuthorizer.java) 检查请求是否使用适当的 HTTP 方法执行
 
-> [原文链接](https://www.pac4j.org/5.7.x/docs/authorizers/web-authorizers.html)
+> [原文链接](https://www.pac4j.org/docs/authorizers/web-authorizers.html)

@@ -16,4 +16,6 @@
 
 例如，`JEEContext` 当前使用依赖 JEE 会话的 [JEESessionStore](https://github.com/pac4j/pac4j/blob/master/pac4j-jakartaee/src/main/java/org/pac4j/jee/context/session/JEESessionStore.java)。在 Play 中，我们有一个特定的基于缓存的 [PlayCacheSessionStore](https://github.com/pac4j/play-pac4j/blob/master/shared/src/main/java/org/pac4j/play/store/PlayCacheSessionStore.java)，在 Knox 中也有一个基于 cookie 的 `KnoxSessionStore`。
 
-> [原文链接](https://www.pac4j.org/5.7.x/docs/session-store.html)
+它们通过相应的 [SessionStoreFactory](https://github.com/pac4j/pac4j/blob/master/pac4j-core/src/main/java/org/pac4j/core/context/session/SessionStoreFactory.java) 提供。
+
+> [原文链接](https://www.pac4j.org/docs/session-store.html)

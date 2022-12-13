@@ -10,9 +10,9 @@
 - [谷歌应用引擎（Google App Engine）支持](/v5.6/clients/google-app-engine.html)
 - [Kerberos (SPNEGO Negotiate)协议](/v5.6/clients/kerberos.html)
 
-虽然大多数客户端都是独立可用的，但 HTTP 客户端需要定义一个[认证器（Authenticator）](/authenticators.html) 来处理凭证校验。
+虽然大多数客户端都是独立可用的，但 HTTP 客户端需要定义一个[认证器（Authenticator）](/v5.6/authenticators.html) 来处理凭证校验。
 
-客户端（如授权者和匹配者）通常在[安全配置（security configuration）](/config.html)中定义。
+客户端（如授权者和匹配者）通常在[安全配置（security configuration）](/v5.6/config.html)中定义。
 
 每个客户端都有一个以类名作为默认的名称（如 `FacebookClient`），但可以使用 `setName` 方法将其显式设置为另一个值。
 
@@ -36,13 +36,13 @@
 ||直接客户端=web 服务认证|间接客户端=UI 认证|
 |--|--|--|
 |[认证流程](/v5.6/authentication-flows.html)|1）为每个 HTTP 请求传递凭据（传递给 “[安全过滤器](/v5.6/how-to-implement-pac4j-for-a-new-framework.html)”）|1） 原始请求的 URL 保存在会话中（通过“安全过滤器”）<br/> 2） 用户被重定向到身份提供者（identity provider）（通过“安全过滤器”）<br/> 3） 认证发生在身份提供者（`identity provider`）（或本地的 `FormClient` 和 `IndirectBasicAuthClient`）<br/> 4） 用户被重定向回调端点/URL（“回调端点”）<br/> 5） 用户被重定向到原始请求的 URL（通过“[回调端点](/v5.6/how-to-implement-pac4j-for-a-new-framework.html)”）|
-|登录流程发生了几次？|通过定义的 [Authenticator](/v5.6/authenticators.html) 和 `ProfileCreator` 对每个 HTTP 请求（在“安全过滤器”中）进行认证。<br/>出于性能原因，可以通过将当前 `Authenticator` 包装在 `LocalCachingAuthenticator` 中来使用缓存，或者可以配置“安全过滤器”以在会话中保存配置 profile（`ProfileStorageDecision`）|认证仅发生一次（在“回调过滤器”中）|
+|登录流程发生了几次？|通过定义的 [Authenticator](/v5.6/authenticators.html) 和 `ProfileCreator` 对每个 HTTP 请求（在“安全过滤器”中）进行认证。<br/>出于性能原因，可以通过将当前 `Authenticator` 包装在 `LocalCachingAuthenticator` 中来使用缓存，或者可以配置“安全过滤器”以在会话中保存配置配置文件（`ProfileStorageDecision`）|认证仅发生一次（在“回调过滤器”中）|
 |默认情况下，用户 profile 保存在哪？|在 HTTP request 中（无状态）|在 web session 中（有状态）|
 |凭据在哪里？|为每个 HTTP request 传递（由“安全过滤器”处理）|在身份提供者（`identity provider`）返回的回调端点上（由“回调端点”获取）|
 
 ## 2）计算角色和权限
 
-要计算经过认证的用户 profile 合适的角色和权限，需要定义 [AuthorizationGenerator](https://github.com/pac4j/pac4j/blob/master/pac4j-core/src/main/java/org/pac4j/core/authorization/generator/AuthorizationGenerator.java) 并将其附加到客户端。
+要计算经过认证的用户配置文件合适的角色和权限，需要定义 [AuthorizationGenerator](https://github.com/pac4j/pac4j/blob/master/pac4j-core/src/main/java/org/pac4j/core/authorization/generator/AuthorizationGenerator.java) 并将其附加到客户端。
 
 **示例**：
 
@@ -120,7 +120,7 @@ defaultCallbackLogic.setClient("FacebookClient");
 
 大多数客户端依赖 `Authenticator` 和 `ProfileCreator` 组件来验证凭据并创建用户配置 profile。
 
-在登录流程结束时，返回的用户 profile 由（内部）`Authenticator` 或 `ProfileCreator` 创建，后者保存 [profile 定义](/user-profile.html)。
+在登录流程结束时，返回的用户 profile 由（内部）`Authenticator` 或 `ProfileCreator` 创建，后者保存 [profile 定义](/v5.6/user-profile.html)。
 
 可以使用 `setProfileDefinition` 方法重写 profile 定义。
 
@@ -149,7 +149,7 @@ defaultCallbackLogic.setClient("FacebookClient");
 |`Optional<UserProfile> renewUserProfile(UserProfile profile, WebContext context, SessionStore sessionStore)`|它返回更新的用户 profile|
 |`Optional<RedirectionAction> getLogoutAction(WebContext context, SessionStore sessionStore, UserProfile currentProfile, String targetUrl)`|它返回重定向操作以调用身份提供者注销。<br/>注销重定向操作计算由 [LogoutActionBuilder](https://github.com/pac4j/pac4j/blob/master/pac4j-core/src/main/java/org/pac4j/core/logout/LogoutActionBuilder.java) 完成|
 
-客户端通常使用默认子组件填充：`RedirectionActionBuilder`、`CredentialExtractor`、`ProfileCreator`、`LogoutActionBuilder` 和 `Authenticator`，但必须明确定义 `Authenticator` 的 HTTP 客户端除外。当然，子组件还可以针对各种[定制](/customizations.html)进行更改。
+客户端通常使用默认子组件填充：`RedirectionActionBuilder`、`CredentialExtractor`、`ProfileCreator`、`LogoutActionBuilder` 和 `Authenticator`，但必须明确定义 `Authenticator` 的 HTTP 客户端除外。当然，子组件还可以针对各种[定制](/v5.6/customizations.html)进行更改。
 
 ## 7）原始请求的 URL
 

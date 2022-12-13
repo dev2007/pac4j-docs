@@ -11,7 +11,7 @@
 
 有如下可用的授权器：
 
-- [角色/权限](/profile-authorizers.html#_1-角色-权限)——[匿名/记住我/（完全）授权](/profile-authorizers.html#_2-授权级别)——[Profile 类型、属性](/profile-authorizers.html#_3-其他)
+- [角色](/authorizers/profile-authorizers.html#_1-角色)——[匿名/记住我/（完全）授权](/authorizers/profile-authorizers.html#_2-授权级别)——[Profile 类型、属性](/authorizers/profile-authorizers.html#_3-其他)
 CSRF - IP address, HTTP method
 
 ## 默认授权器名称
@@ -35,13 +35,13 @@ CSRF - IP address, HTTP method
 final Authorizer authorizer = or(
     and(
         requireAnyRole("profile_role1"),
-        requireAnyPermission("profile_permission1")
+        requireAnyRole("profile_role2")
     ),
     and(
-        requireAnyRole("profile_role2"),
-        requireAnyPermission("profile_permission2")
+        requireAnyRole("profile_role3"),
+        requireAnyRole("profile_role4"),
     )
 );
 ```
 
-> [原文链接](https://www.pac4j.org/5.7.x/docs/authorizers.html)
+> [原文链接](https://www.pac4j.org/docs/authorizers.html)

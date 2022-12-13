@@ -43,4 +43,4 @@ RestAuthenticator authenticator = new RestAuthenticator("http://rest-api-url");
 DirectBasicAuthClient directBasicAuthClient = new DirectBasicAuthClient(authenticator);
 ```
 
-> [原文链接](https://www.pac4j.org/5.7.x/docs/authenticators/rest.html)
+> [原文链接](https://www.pac4j.org/docs/authenticators/rest.html)

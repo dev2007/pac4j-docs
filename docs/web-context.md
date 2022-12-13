@@ -23,4 +23,4 @@
 
 例如，有一个 `JEEContextFactory.INSTANCE` 为 JEE 应用程序实例化 `JEEContext`。
 
-> [原文链接](https://www.pac4j.org/5.7.x/docs/web-context.html)
+> [原文链接](https://www.pac4j.org/docs/web-context.html)

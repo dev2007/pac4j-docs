@@ -55,4 +55,4 @@ HeaderClient client = new HeaderClient("Authorization", "Basic ", (credentials, 
 });
 ```
 
-> [原文链接](https://www.pac4j.org/5.7.x/docs/clients/http.html)
+> [原文链接](https://www.pac4j.org/docs/clients/http.html)

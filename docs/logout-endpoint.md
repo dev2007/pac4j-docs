@@ -1,6 +1,7 @@
 # 注销端点
 
 要处理注销，需要执行注销端点：
+
 - 通过从会话中删除 pac4j profile 实现本地注销
 - 通过调用认证提供者注销端点实现中央注销。这是单点注销（Single-Log-Out=SLO）过程。
 
@@ -44,28 +45,4 @@
 
 在中央注销的情况下，认证提供者处发生的 SLO（单点登出）过程将向应用程序发送注销请求。然而，这些注销请求将由[回调端点](/callback-endpoint.html)而不是此注销端点接收。
 
-
-## 4）高级选项
-
-高级选项可在以下地方设置：
-
-- `Config` 级别
-- 直接在注销端点级，通过 `setter`、构造函数、`servlet` 参数等……取决于 *pac4j* 实现：
-
-### a）sessionStore
-
-你可以定义一个特定的 [SessionStore](/session-store.html) 来替代 *pac4j* 默认实现。
-
-### b）httpActionAdapter
-
-你可以定义一个特定的 [HttpActionAdapter](/http-action-adapter.html) 来替代 *pac4j* 默认实现。
-
-### c）logoutLogic
-
-你可以定义特定的 `LogoutLogic` 替代默认的 `DefaultLogoutLogic`。
-
-### d）webContextFactory
-
-你可以定义特定的 [WebContextFactory](/web-context.html)，来替代 *pac4j* 默认实现。
-
-> [原文链接](https://www.pac4j.org/5.7.x/docs/logout-endpoint.html)
+> [原文链接](https://www.pac4j.org/docs/logout-endpoint.html)

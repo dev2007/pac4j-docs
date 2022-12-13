@@ -1,5 +1,26 @@
 # 发行说明
 
+**JDK17:**
+
+## v6.0.0
+
+- 基于 JDK17
+- 移除弃用的 `pac4j-saml`、 `pac4j-cas` 和 `pac4j-springboot` 模块
+- 重命名 `pac4j-cas-clientv4` 模块为 `pac4j-cas`
+- 重命名 `pac4j-saml-opensamlv5` 模块为 `pac4j-saml`
+- 重命名 `pac4j-springbootv3` 模块为 `pac4j-springboot`
+- 移除弃用的概念和组件
+- `Authenticator` 现在返回 `Optional<Credentials>`
+- 使用 Lombok
+- 移除 `ProfileManagerFactoryAware`
+- 移除 `FindBest`
+- 端点/拦截器的自定义只能通过 `Config` 组件完成。JEE 特性（默认设置）在 `Pac4jJEEConfig` 中指定
+- 重命名 `defaultXXX` 方法为 `setXXXIfUndefined`
+
+---
+
+**JDK11:**
+
 ## v5.7.1:
 
 - 允许禁用 `DefaultCsrfTokenGenerator` 上的令牌旋转
@@ -175,6 +196,8 @@
 - 支持强制/被动认证的协议的认证请求现在可以使用预定义的 HTTP 属性根据每个请求进行修改，以控制发送给提供者的认证申请的类型。
 
 ---
+
+**JDK8:**
 
 ## v4.5.7:
 
@@ -388,4 +411,4 @@
 
 *较老的发行说明已删除。*
 
-> [原文链接](https://www.pac4j.org/5.7.x/docs/release-notes.html)
+> [原文链接](https://www.pac4j.org/docs/release-notes.html)

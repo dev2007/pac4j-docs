@@ -28,4 +28,4 @@ CasProfile profile = manager.getProfile(CasProfile.class).get();
 
 它可以设置在组件级别（如逻辑）或 `Config` 级别。
 
-> [原文链接](https://www.pac4j.org/5.7.x/docs/profile-manager.html)
+> [原文链接](https://www.pac4j.org/docs/profile-manager.html)

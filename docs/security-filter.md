@@ -45,27 +45,4 @@
 
 你还可以使用[开箱即用的匹配器](/matcher.html#_3-默认匹配器)，而无需在安全配置中定义它们。以“+”开头 `matchers` 字符串，将其他匹配器添加到默认匹配器中，或不替换它们。
 
-## 3）高级选项
-
-高级选项可设置为：
-
-- `Config` 级别
-- 直接在安全过滤器级别通过 `setter`、构造函数、`servlet` 参数等……取决于 *pac4j* 实现：
-
-### a）sessionStore
-
-你可以定义一个特定的 [SessionStore](/session-store.html) 来替代 *pac4j* 默认实现。
-
-### b）httpActionAdapter
-
-你可以定义一个特定的 [HttpActionAdapter](/http-action-adapter.html) 来替代 *pac4j* 默认实现。
-
-### c）logoutLogic
-
-你可以定义特定的 `SecurityLogic` 来替代默认的 `DefaultSecurityLogic`。
-
-### d）webContextFactory
-
-你可以定义特定的 [WebContextFactory](/web-context.html)，来替代 *pac4j* 默认实现。
-
-> [原文链接](https://www.pac4j.org/5.7.x/docs/security-filter.html)
+> [原文链接](https://www.pac4j.org/docs/security-filter.html)

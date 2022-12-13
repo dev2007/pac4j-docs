@@ -13,7 +13,7 @@
 - [ProfileCreator](https://github.com/pac4j/pac4j/blob/master/pac4j-core/src/main/java/org/pac4j/core/profile/creator/ProfileCreator.java) 为经过认证的用户（间接和直接客户端）创建用户配置文件
 - [Authorizer](https://github.com/pac4j/pac4j/blob/master/pac4j-core/src/main/java/org/pac4j/core/authorization/authorizer/Authorizer.java) 允许基于用户配置文件或 web 上下文进行访问
 - [Matcher](https://github.com/pac4j/pac4j/blob/master/pac4j-core/src/main/java/org/pac4j/core/matching/Matcher.java) 定义安全性是否必须应用于 web 上下文
-- [AuthorizationGenerator](https://github.com/pac4j/pac4j/blob/master/pac4j-core/src/main/java/org/pac4j/core/authorization/generator/AuthorizationGenerator.java) 为给定的用户配置文件生成适当的角色和权限。
+- [AuthorizationGenerator](https://github.com/pac4j/pac4j/blob/master/pac4j-core/src/main/java/org/pac4j/core/authorization/generator/AuthorizationGenerator.java) 为给定的用户配置文件生成适当的角色。
 
 覆盖或创建新组件应该很简单。
 
@@ -52,4 +52,4 @@ public class ExampleAuthorizer implements Authorizer {
 
 在所有情况下，没有什么比以现有组件为例更好的了。不要犹豫，在 [pac4j 开发邮件列表](https://groups.google.com/forum/?fromgroups#!forum/pac4j-dev)中提出任何问题。
 
-> [原文链接](https://www.pac4j.org/5.7.x/docs/customizations.html)
+> [原文链接](https://www.pac4j.org/docs/customizations.html)

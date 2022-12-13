@@ -79,4 +79,4 @@ pac4j:
 - `.passwordEncoder` 属性必须设置为已定义在 `PasswordEncoder` 中的名字，比如 `encoder.spring` 或 `encoder.shiro.3`
 - `.authenticator` 属性必须设置为已定义在 `Authenticator` 中的名字，比如 `ldap` 或 `db.1` 或隐式值：`testUsernamePassword` 或 `testToken`（用于测试认证器）。
 
-> [原文链接](https://www.pac4j.org/5.7.x/docs/config-module.html)
+> [原文链接](https://www.pac4j.org/docs/config-module.html)

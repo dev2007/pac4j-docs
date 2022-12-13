@@ -43,7 +43,7 @@ OidcConfiguration configuration = new OidcConfiguration();
 configuration.setClientId("788339d7-1c44-4732-97c9-134cb201f01f");
 configuration.setSecret("we/31zi+JYa7zOugO4TbSw0hzn+hv2wmENO9AS3T84s=");
 configuration.setDiscoveryURI("https://login.microsoftonline.com/38c46e5a-21f0-46e5-940d-3ca06fd1a330/.well-known/openid-configuration");
-AzureAdClient client = new AzureAdClient(configuration);
+AzureAd2Client client = new AzureAd2Client(configuration);
 ```
 
 由 OpenID Connect 提供者提供的 `clientId` 和 `secret`，以及 `discoveryUri`（用于认证提供者的元数据）。如果未定义 `discoveryUri`，则需要通过 `setProviderMetadata` 方法提供提供者元数据。
@@ -164,4 +164,4 @@ config.setTokenExpirationAdvance(10);
 config.setAllowUnsignedIdTokens(true);
 ```
 
-> [原文链接](https://www.pac4j.org/5.7.x/docs/clients/openid-connect.html)
+> [原文链接](https://www.pac4j.org/docs/clients/openid-connect.html)

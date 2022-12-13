@@ -10,4 +10,4 @@
 
 它只有一个使用 Guava 的默认实现：[GuavaStore](https://github.com/pac4j/pac4j/blob/master/pac4j-core/src/main/java/org/pac4j/core/store/GuavaStore.java)。但如果需要，你可以提供自己的。
 
-> [原文链接](https://www.pac4j.org/5.7.x/docs/store.html)
+> [原文链接](https://www.pac4j.org/docs/store.html)

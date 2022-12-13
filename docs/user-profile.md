@@ -41,11 +41,11 @@ profile.getTypedId() // org.pac4j.oauth.profile.facebook.FacebookProfile#00001
 
 某些认证提供者将包含与认证本身相关的属性，例如认证方法、认证有效的时间段或认证提供者的元数据。这些属性与用户的属性分开存储。
 
-## 4）角色和权限
+## 4）角色
 
-可以通过 `addRole(role)`、`addRoles(Roles)`、`addPermission(permission)`和 `addPermissions(permissions)` 方法将角色和权限添加到用户配置文件中。
+可以通过 `addRole(role)` 和 `addRoles(Roles)` 方法将角色添加到用户配置文件中。
 
-它们通常在 [AuthorizationGenerator](https://www.pac4j.org/5.7.x/docs/clients.html#2-compute-roles-and-permissions) 中计算。
+它们通常在 [AuthorizationGenerator](/clients.html#_2-计算角色) 中计算。
 
 ## 5）客户端名字
 
@@ -97,4 +97,4 @@ profile.getTypedId() // org.pac4j.oauth.profile.facebook.FacebookProfile#00001
 
 每个用户配置文件可能有一个关联标识符，它是另一个用户配置文件的标识符。这样，两个用户配置文件都被关联起来，它允许你通过用户的帐户进行认证，并加载在第一个用户中定义的关联用户，特别是通过使用 [LoadLinkedUserAuthorizationGenerator](https://github.com/pac4j/pac4j/blob/master/pac4j-core/src/main/java/org/pac4j/core/authorization/generator/LoadLinkedUserAuthorizationGenerator.java)。
 
-> [原文链接](https://www.pac4j.org/5.7.x/docs/user-profile.html)
+> [原文链接](https://www.pac4j.org/docs/user-profile.html)

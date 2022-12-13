@@ -65,4 +65,4 @@ client.setCallbackUrl("/force-kerberos-login"); // required only for indirect cl
   127.0.0.1 www.mydomain.myrealm.lt
   ```
 
-> [原文链接](https://www.pac4j.org/5.7.x/docs/clients/kerberos.html)
+> [原文链接](https://www.pac4j.org/docs/clients/kerberos.html)

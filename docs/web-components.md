@@ -8,5 +8,4 @@
 
 参阅[如何为新框架/工具实现 *pac4j*](/how-to-implement-pac4j-for-a-new-framework.html)，以获取更多技术细节。
 
-> [原文链接](https://www.pac4j.org/5.7.x/docs/web-components.html)
-
+> [原文链接](https://www.pac4j.org/docs/web-components.html)

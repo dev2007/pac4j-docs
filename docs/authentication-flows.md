@@ -16,4 +16,4 @@
 
 ![pac4j-stateless.png](./assets/pac4j-stateless.png)
 
-> [原文链接](https://www.pac4j.org/5.7.x/docs/authentication-flows.html)
+> [原文链接](https://www.pac4j.org/docs/authentication-flows.html)

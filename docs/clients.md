@@ -19,7 +19,7 @@
 理解以下主要特性：
 
 - [直接客户端与间接客户端](/clients.html#_1-直接客户端-vs-间接客户端)
-- [计算角色和权限](/clients.html#_2-计算角色和权限)
+- [计算角色](/clients.html#_2-计算角色)
 - [回调 URL](/clients.html#_3-回调-url)
 - [Profile 选项](/clients.html#_4-profile-选项)
 - [AJAX 请求](/clients.html#_5-ajax-请求)
@@ -40,9 +40,9 @@
 |默认情况下，用户 profile 保存在哪？|在 HTTP request 中（无状态）|在 web session 中（有状态）|
 |凭据在哪里？|为每个 HTTP request 传递（由“安全过滤器”处理）|在身份提供者（`identity provider`）返回的回调端点上（由“回调端点”获取）|
 
-## 2）计算角色和权限
+## 2）计算角色
 
-要计算经过认证的用户 profile 合适的角色和权限，需要定义 [AuthorizationGenerator](https://github.com/pac4j/pac4j/blob/master/pac4j-core/src/main/java/org/pac4j/core/authorization/generator/AuthorizationGenerator.java) 并将其附加到客户端。
+要计算经过认证的用户配置文件合适的角色，需要定义 [AuthorizationGenerator](https://github.com/pac4j/pac4j/blob/master/pac4j-core/src/main/java/org/pac4j/core/authorization/generator/AuthorizationGenerator.java) 并将其附加到客户端。
 
 **示例**：
 
@@ -92,13 +92,12 @@ OidcConfiguration configuration = new OidcConfiguration();
 configuration.setClientId("788339d7-1c44-4732-97c9-134cb201f01f");
 configuration.setSecret("we/31zi+JYa7zOugO4TbSw0hzn+hv2wmENO9AS3T84s=");
 configuration.setDiscoveryURI("https://login.microsoftonline.com/38c46e5a-21f0-46e5-940d-3ca06fd1a330/.well-known/openid-configuration");
-AzureAdClient azureAdClient = new AzureAdClient(configuration);
-client.setCallbackUrlResolver(new PathParameterCallbackUrlResolver());
-Clients clients = new Clients("http://localhost:8080/callback", azureAdClient);
+AzureAd2Client client = new AzureAd2Client(configuration);
+Clients clients = new Clients("http://localhost:8080/callback", client);
 Config config = new Config(clients);
 ```
 
-在这个例子中，`AzureAdClient` 的回调 URL 是 `http://localhost:8080/callback/AzureAdClient`。
+在这个例子中，`AzureAd2Client` 的回调 URL 是 `http://localhost:8080/callback/AzureAd2Client`。
 
 你甚至可以使用 `NoParameterCallbackUrlResolver`，它使回调 URL 保持不变。在这种情况下，不会向回调 URL 添加任何参数，也不会在回调端点上获取客户端。你将被迫在 `CallbackLogic` 级别定义一个“默认客户端”。
 
@@ -177,4 +176,4 @@ myClient.setProfileFactoryWhenNotAuthenticated(p -> AnonymousProfile.INSTANCE);
 在这种情况下，除非定义了合适的授权者，否则将授予整个 web 会话对所有安全资源的访问权限。
 :::
 
-> [原文链接](https://www.pac4j.org/5.7.x/docs/clients.html)
+> [原文链接](https://www.pac4j.org/docs/clients.html)

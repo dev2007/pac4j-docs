@@ -14,7 +14,7 @@ CAS 服务器还可以充当 SAML IdP 或 OpenID Connect 提供者。在这种�
 
 ## 0）依赖
 
-你需要使用以下模块：`pac4j-cas`（不推荐使用，CAS 客户端 v3.x，JDK 11）或 `pac4j-cas-clientv4`（CAS 客户端 v4.x，JDK 17）。
+你需要使用以下模块：`pac4j-cas`。
 
 **示例（Maven 依赖）**：
 
@@ -167,4 +167,4 @@ CasRestFormClient casRestClient = new CasRestFormClient(casConfig);
 - 验证它们：`CasProfile casProfile = casRestClient.validateServiceTicket(serviceUrl, tokenCredentials, context)`
 - 或销毁以前的身份验证：`CasProfile casProfile = casRestClient.validateServiceTicket(serviceUrl, tokenCredentials, context)`。
 
-> [原文链接](https://www.pac4j.org/5.7.x/docs/clients/cas.html)
+> [原文链接](https://www.pac4j.org/docs/clients/cas.html)

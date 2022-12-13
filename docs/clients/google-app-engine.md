@@ -27,4 +27,4 @@ GaeUserServiceClient client = new GaeUserServiceClient();
 client.setCallbackUrl("http://localhost:8080/callback");
 ```
 
-> [原文链接](https://www.pac4j.org/5.7.x/docs/clients/google-app-engine.html)
+> [原文链接](https://www.pac4j.org/docs/clients/google-app-engine.html)

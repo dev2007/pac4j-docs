@@ -56,11 +56,11 @@ Config config = new Config(clients);
 你可以在 Config 级别定义安全过滤器和回调/注销端点将使用的几个组件：
 
 - `config.setProfileManagerFactory(x)` 用于从 `WebContext` 构建 [ProfileManager](/profile-manager.html)
-- `config.setSessionStore(x)` 用于设置一个指定的 [SessionStore](/session-store.html)
+- `config.setSessionStoreFactory(x)` 用于设置一个指定的 [SessionStore](/session-store.html)
 - `config.setHttpActionAdapter(x)` 用于设置一个指定的 [HttpActionAdapter](/http-action-adapter.html)
 - `config.setSecurityLogic(x)` 用于设置一个指定的 `SecurityLogic`
 - `config.setCallbackLogic(x)` 用于设置一个指定的 `CallbackLogic`
 - `config.setLogoutLogic(x)` 用于设置一个指定的 `LogoutLogic`
 - `config.setWebContextFactory(x)` 用于设置一个指定的 [WebContextFactory](/web-context.html)。
 
-> [原文链接](https://www.pac4j.org/5.7.x/docs/config.html)
+> [原文链接](https://www.pac4j.org/docs/config.html)
