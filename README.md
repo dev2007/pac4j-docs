@@ -19,6 +19,7 @@ npm run docs:dev
 ```bash
 success [16:17:40] Build 9a5052 finished in 14671 ms!
 > VuePress dev server listening at http://localhost:8080/
+```
 
 ## 查看文档
 
