@@ -39,7 +39,7 @@ LocalCachingAuthenticator authent = new LocalCachingAuthenticator(new JwtAuthent
 请注意，此 `LocalCachingAuthenticator` 需要额外的 `guava` 依赖。
 :::
 
-在某些情况下，你还可以通过：`client.setSaveProfileInSession(true);` 来依赖会话；。
+在某些情况下，你还可以通过：`client.setSaveProfileInSession(true);` 来依赖会话。
 
 如果是 “noop” 认证器（`Authenticator.ALWAYS_VALIDATE`），只有配置文件创建才重要，则应改用 [LocalCachingProfileCreator](https://github.com/pac4j/pac4j/blob/master/pac4j-core/src/main/java/org/pac4j/core/profile/creator/LocalCachingProfileCreator)。
 

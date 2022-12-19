@@ -480,8 +480,13 @@ SimpleSAMLphp 在 `http://idp-domain/simplesamlphp/saml2/idp/metadata.php?output
 
 - 附加依赖
 
-```java
-com.hazelcast hazelcast ${hazelcast.version} true
+```xml
+<dependency>
+    <groupId>com.hazelcast</groupId>
+    <artifactId>hazelcast</artifactId>
+    <version>${hazelcast.version}</version>
+    <optional>true</optional>
+</dependency>
 ```
 
 - 将 HazelcastInstance 对象传递给构造函数

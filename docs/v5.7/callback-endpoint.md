@@ -15,19 +15,19 @@
 
 以下选项可用于回调端点。它们可以通过 `setter`、构造函数、`servlet` 参数等来定义，具体取决于 *pac4j* 的实现：
 
-### a）config
+### a）`config`
 
 参阅[安全配置](/v5.7/config.html)
 
-### b）defaultUrl
+### b）`defaultUrl`
 
 如果没有原始请求的URL，则登录后是默认 URL。它是一个可选参数，默认情况下等于 `/`。
 
-### c）renewSession
+### c）`renewSession`
 
 它指示登录后是否必须刷新 web 会话，以避免会话劫持。它是一个可选参数，默认为 `true`。
 
-### d）defaultClient
+### d）`defaultClient`
 
 它定义了如果 URL 上没有提供客户端，用于完成登录流程的默认客户端。它是一个可选参数，默认情况下未定义。
 

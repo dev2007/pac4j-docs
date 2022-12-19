@@ -17,27 +17,27 @@
 
 以下选项可用于注销端点。它们可以通过 `setter`、构造函数、`servlet` 参数等来定义，具体取决于 *pac4j* 的实现：
 
-### a）config
+### a）`config`
 
 参阅[安全配置](/v5.7/config.html)
 
-### b）defaultUrl
+### b）`defaultUrl`
 
 如果未提供 `url` 请求参数或 `url` 与 `logoutUrlPattern` 不匹配，则为默认的注销 URL。它是一个可选参数，默认情况下未定义。
 
-### c）logoutUrlPattern
+### c）`logoutUrlPattern`
 
 `url` 参数必须匹配的注销 URL 模式。它是一个可选参数，默认情况下只允许相对 URL。
 
-### d）localLogout
+### d）`localLogout`
 
 它指示是否必须执行本地注销。它是一个可选参数，默认为 `true`。
 
-### e）destroySession
+### e）`destroySession`
 
 它定义了在本地注销期间是否必须销毁 web 会话。它是一个可选参数，默认为 `false`。
 
-### f）centralLogout
+### f）`centralLogout`
 
 它定义是否必须执行中央注销。它是一个可选参数，默认为 `false`。
 

@@ -39,7 +39,7 @@ LocalCachingAuthenticator authent = new LocalCachingAuthenticator(new JwtAuthent
 请注意，此 `LocalCachingAuthenticator` 需要额外的 `guava` 依赖。
 :::
 
-在某些情况下，你还可以通过：`client.setSaveProfileInSession(true);` 来依赖会话；。
+在某些情况下，你还可以通过：`client.setSaveProfileInSession(true);` 来依赖会话。
 
 ## 2）`PasswordEncoder`
 

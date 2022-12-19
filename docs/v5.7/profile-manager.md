@@ -1,8 +1,8 @@
-# 数据管理器
+# 配置文件管理器
 
-数据管理器（profile manager）用于处理用户配置文件：它可以用于保存或恢复它。
+配置文件管理器（profile manager）用于处理用户配置文件：它可以用于保存或恢复它。
 
-数据管理器是从 `WebContext` 和 `SessionStore` 实例化的。
+配置文件管理器是从 `WebContext` 和 `SessionStore` 实例化的。
 
 ## 1）检索
 
@@ -16,9 +16,9 @@
 CasProfile profile = manager.getProfile(CasProfile.class).get();
 ```
 
-## 2）自定义数据管理器
+## 2）自定义配置文件管理器
 
-默认情况下，数据管理器是 [ProfileMamager](https://github.com/pac4j/pac4j/blob/master/pac4j-core/src/main/java/org/pac4j/core/profile/ProfileManager.java) 组件。
+默认情况下，配置文件管理器是 [ProfileMamager](https://github.com/pac4j/pac4j/blob/master/pac4j-core/src/main/java/org/pac4j/core/profile/ProfileManager.java) 组件。
 
 在一些 *pac4j* 实现中，有特定的配置管理器：`UndertowProfileManager`、`ShiroProfileManager` 等。
 

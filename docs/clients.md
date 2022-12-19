@@ -26,7 +26,7 @@
 - [直接客户端与间接客户端](/clients.html#_1-直接客户端-vs-间接客户端)
 - [计算角色](/clients.html#_2-计算角色)
 - [回调 URL](/clients.html#_3-回调-url)
-- [Profile 选项](/clients.html#_4-profile-选项)
+- [配置文件选项](/clients.html#_4-配置文件选项)
 - [AJAX 请求](/clients.html#_5-ajax-请求)
 - [Client 方法](/clients.html#_6-client-方法)
 - [原始请求的 URL](/clients.html#_7-原始请求的-url)
@@ -41,8 +41,8 @@
 ||直接客户端=web 服务认证|间接客户端=UI 认证|
 |--|--|--|
 |[认证流程](/authentication-flows.html)|1）为每个 HTTP 请求传递凭据（传递给 “[安全过滤器](/how-to-implement-pac4j-for-a-new-framework.html)”）|1） 原始请求的 URL 保存在会话中（通过“安全过滤器”）<br/> 2） 用户被重定向到身份提供者（identity provider）（通过“安全过滤器”）<br/> 3） 认证发生在身份提供者（`identity provider`）（或本地的 `FormClient` 和 `IndirectBasicAuthClient`）<br/> 4） 用户被重定向回调端点/URL（“回调端点”）<br/> 5） 用户被重定向到原始请求的 URL（通过“[回调端点](/how-to-implement-pac4j-for-a-new-framework.html)”）|
-|登录流程发生了几次？|通过定义的 [Authenticator](/authenticators.html) 和 `ProfileCreator` 对每个 HTTP 请求（在“安全过滤器”中）进行认证。<br/>出于性能原因，可以通过将当前 `Authenticator` 包装在 `LocalCachingAuthenticator` 中来使用缓存，或者可以配置“安全过滤器”以在会话中保存配置 profile（`ProfileStorageDecision`）|认证仅发生一次（在“回调过滤器”中）|
-|默认情况下，用户 profile 保存在哪？|在 HTTP request 中（无状态）|在 web session 中（有状态）|
+|登录流程发生了几次？|通过定义的 [Authenticator](/authenticators.html) 和 `ProfileCreator` 对每个 HTTP 请求（在“安全过滤器”中）进行认证。<br/>出于性能原因，可以通过将当前 `Authenticator` 包装在 `LocalCachingAuthenticator` 中来使用缓存，或者可以配置“安全过滤器”以在会话中保存配置文件（`ProfileStorageDecision`）|认证仅发生一次（在“回调过滤器”中）|
+|默认情况下，用户配置文件保存在哪？|在 HTTP request 中（无状态）|在 web session 中（有状态）|
 |凭据在哪里？|为每个 HTTP request 传递（由“安全过滤器”处理）|在身份提供者（`identity provider`）返回的回调端点上（由“回调端点”获取）|
 
 ## 2）计算角色
@@ -116,17 +116,17 @@ defaultCallbackLogic.setClient("FacebookClient");
 
 你可以使用 [DefaultUrlResolver](https://github.com/pac4j/pac4j/blob/master/pac4j-core/src/main/java/org/pac4j/core/http/url/DefaultUrlResolver.java) 并通过使用：`defaultUrlResolver.setCompleteRelativeUrl(true)` 来处理相对 URL。或者通过 `setUrlResolver` 方法提供自己的 `UrlResolver`。
 
-## 4）Profile 选项
+## 4）配置文件选项
 
-你可以通过 `setSaveProfileInSession` 方法控制 profile 是否保存在会话中。默认情况下，间接客户端配置为 `true`，直接客户端配置为 `false`。
+你可以通过 `setSaveProfileInSession` 方法控制配置文件是否保存在会话中。默认情况下，间接客户端配置为 `true`，直接客户端配置为 `false`。
 
-你可以通过 `setMultiProfile` 方法（默认情况下为 `false`）控制 profile 是保存在现存验证过的 profile 之外还是替换现存的 profile。
+你可以通过 `setMultiProfile` 方法（默认情况下为 `false`）控制配置文件是保存在现存验证过的配置文件之外还是替换现存的配置文件。
 
-大多数客户端依赖 `Authenticator` 和 `ProfileCreator` 组件来验证凭据并创建用户配置 profile。
+大多数客户端依赖 `Authenticator` 和 `ProfileCreator` 组件来验证凭据并创建用户配置文件。
 
-在登录流程结束时，返回的用户 profile 由（内部）`Authenticator` 或 `ProfileCreator` 创建，后者保存 [profile 定义](/user-profile.html)。
+在登录流程结束时，返回的用户配置文件由（内部）`Authenticator` 或 `ProfileCreator` 创建，后者保存 [配置文件定义](/user-profile.html)。
 
-可以使用 `setProfileDefinition` 方法重写 profile 定义。
+可以使用 `setProfileDefinition` 方法重写配置文件定义。
 
 ## 5）AJAX 请求
 
@@ -149,7 +149,7 @@ defaultCallbackLogic.setClient("FacebookClient");
 |`Optional<RedirectionAction> getRedirectionAction(WebContext context, SessionStore sessionStore)`|它返回重定向操作，将用户重定向到身份提供者进行登录。这只对间接客户有意义。<br/>通过 [RedirectionActionBuilder](https://github.com/pac4j/pac4j/blob/master/pac4j-core/src/main/java/org/pac4j/core/redirect/RedirectionActionBuilder.java) 在内部计算用户到身份提供者的重定向|
 |`Optional<Credentials> getCredentials(WebContext context, SessionStore sessionStore)`|它从 HTTP 请求中提取凭据并验证它们。
 凭据的提取由 [CredentialsExtractor](https://github.com/pac4j/pac4j/blob/master/pac4j-core/src/main/java/org/pac4j/core/credentials/extractor/CredentialsExtractor.java) 完成，而凭据验证由 [Authenticator](https://github.com/pac4j/pac4j/blob/master/pac4j-core/src/main/java/org/pac4j/core/credentials/authenticator/Authenticator.java) 确保|
-|`Optional<UserProfile> getUserProfile(Credentials credentials, WebContext context, SessionStore sessionStore)`|它构建经过身份验证的用户 profile。<br/> 已验证用户 profile 的创建由 [ProfileCreator](https://github.com/pac4j/pac4j/blob/master/pac4j-core/src/main/java/org/pac4j/core/profile/creator/ProfileCreator.java) 执行|
+|`Optional<UserProfile> getUserProfile(Credentials credentials, WebContext context, SessionStore sessionStore)`|它构建经过身份验证的用户配置文件。<br/> 已验证用户配置文件的创建由 [ProfileCreator](https://github.com/pac4j/pac4j/blob/master/pac4j-core/src/main/java/org/pac4j/core/profile/creator/ProfileCreator.java) 执行|
 |`Optional<UserProfile> renewUserProfile(UserProfile profile, WebContext context, SessionStore sessionStore)`|它返回更新的用户 profile|
 |`Optional<RedirectionAction> getLogoutAction(WebContext context, SessionStore sessionStore, UserProfile currentProfile, String targetUrl)`|它返回重定向操作以调用身份提供者注销。<br/>注销重定向操作计算由 [LogoutActionBuilder](https://github.com/pac4j/pac4j/blob/master/pac4j-core/src/main/java/org/pac4j/core/logout/LogoutActionBuilder.java) 完成|
 
@@ -165,11 +165,11 @@ defaultCallbackLogic.setClient("FacebookClient");
 
 使用 `IndirectClient` 时，登录流程可能会失败或在外部身份提供者层级被取消。
 
-因此，不会创建用户 profile，并且不授权对安全资源访问（401 错误）。
+因此，不会创建用户配置文件，并且不授权对安全资源访问（401 错误）。
 
 但是，如果登录流程失败或被取消，你可能仍然希望访问 web 资源。
 
-为此，可以使用客户端的 `setProfileFactoryWhenNotAuthenticated 方法返回自定义 profile，而不是无配 profile。
+为此，可以使用客户端的 `setProfileFactoryWhenNotAuthenticated 方法返回自定义配置文件，而不是无配置文件。
 
 **示例**：
 

@@ -10,7 +10,7 @@
 - `destroySession`：销毁基础 web 会话
 - `getTrackableSession`：将本地会话作为可跟踪对象（用于后台通道注销）
 - `buildFromTrackableSession`：从可跟踪会话构建新的会话存储（用于后台通道注销）
-- `renewSession`：通过将所有数据复制到新会话来更新本地会话。
+- `renewSession`：通过将所有数据复制到新会话来更新本地会话。;
 
 它的实现因 *pac4j* 的实现而异。
 
