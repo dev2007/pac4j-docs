@@ -6,22 +6,16 @@
 - 属性（`getAttributes()`、 `getAttribute(name)`）
 - 认证相关属性 （`getAuthenticationAttributes()`、`getAuthenticationAttribute(name)`）
 - 角色 （`getRoles()`）
+- 权限 （`getPermissions()`）
 - 客户端名称（`getClientName()`）
 - 记住我 （`isRemembered()`）
 - 一个关联标识符（`getLinkedId()`）
-
-<InArticleAdsense
-    data-ad-client="ca-pub-8380975615223941"
-    data-ad-slot="9428292757">
-</InArticleAdsense>
 
 事实上，配置文件层次结构的根类是 [BasicUserProfile](https://github.com/pac4j/pac4j/blob/master/pac4j-core/src/main/java/org/pac4j/core/profile/BasicUserProfile.java)。它实现 [UserProfile](https://github.com/pac4j/pac4j/blob/master/pac4j-core/src/main/java/org/pac4j/core/profile/UserProfile.java) 接口。
 
 这适用于需要最小用户配置文件的特定用例。
 
 在 *pac4j* 环境中，必须考虑的第一个用户配置文件是 [CommonProfile](https://github.com/pac4j/pac4j/blob/master/pac4j-core/src/main/java/org/pac4j/core/profile/CommonProfile.java)，它定义了大多数配置文件中最常用的方法。
-
-用户配置文件通过 [配置文件管理器](/profile-manager.html)进行管理。
 
 ## 1）标识符
 
@@ -46,11 +40,11 @@ profile.getTypedId() // org.pac4j.oauth.profile.facebook.FacebookProfile#00001
 
 某些认证提供者将包含与认证本身相关的属性，例如认证方法、认证有效的时间段或认证提供者的元数据。这些属性与用户的属性分开存储。
 
-## 4）角色
+## 4）角色和权限
 
-可以通过 `addRole(role)` 和 `addRoles(Roles)` 方法将角色添加到用户配置文件中。
+可以通过 `addRole(role)`、`addRoles(Roles)`、`addPermission(permission)`和 `addPermissions(permissions)` 方法将角色和权限添加到用户配置文件中。
 
-它们通常在 [AuthorizationGenerator](/clients.html#_2-计算角色) 中计算。
+它们通常在 [AuthorizationGenerator](/v4.0/clients.html#_2-计算角色和权限) 中计算。
 
 ## 5）客户端名字
 
@@ -89,8 +83,6 @@ profile.getTypedId() // org.pac4j.oauth.profile.facebook.FacebookProfile#00001
 
 因此，`newProfile` 方法返回一个新的类实例，而 `convertAndAdd` 方法会转换属性（如果有关联的转换器）并将其添加到配置文件中。
 
-如果将 `typedId` 指定为第一个参数，并且已调用 `setRestoreProfileFromTypedId(true)` 方法，则 `newProfile` 方法还可以返回 `typedId` 的相关配置文件。
-
 ## 9）数据结构
 
 事实上，大多数客户端都不会返回 `CommonProfile`，但会返回特定的配置文件，如 `FacebookProfile`、`OidcProfile` ……
@@ -102,4 +94,19 @@ profile.getTypedId() // org.pac4j.oauth.profile.facebook.FacebookProfile#00001
 
 每个用户配置文件可能有一个关联标识符，它是另一个用户配置文件的标识符。这样，两个用户配置文件都被关联起来，它允许你通过用户的帐户进行认证，并加载在第一个用户中定义的关联用户，特别是通过使用 [LoadLinkedUserAuthorizationGenerator](https://github.com/pac4j/pac4j/blob/master/pac4j-core/src/main/java/org/pac4j/core/authorization/generator/LoadLinkedUserAuthorizationGenerator.java)。
 
-> [原文链接](https://www.pac4j.org/docs/user-profile.html)
+## 11）配置文件管理器
+
+配置文件管理器用于处理用户配置文件：它可以用于保存或恢复用户配置文件。
+
+默认情况下，配置文件管理器是 `ProfileAmager` 组件。
+
+在一些 *pac4j* 实现中，有特定的配置文件管理器：`UndertowProfileManager`、`ShiroProfileManager` 等。
+
+自定义配置文件管理器可以通过两个工厂实例化：
+
+- `setProfileManagerFactory(final Function<WebContext, ProfileManager> factory)`
+- `setProfileManagerFactory2(final BiFunction<WebContext, SessionStore<WebContext>, ProfileManager> factory)`。
+
+它可以设置在组件级别（如逻辑）或 `Config` 级别。
+
+> [原文链接](https://www.pac4j.org/4.0.x/docs/user-profile.html)

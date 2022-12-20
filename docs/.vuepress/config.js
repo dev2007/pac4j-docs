@@ -51,6 +51,10 @@ module.exports = {
     '/v4.5/': {
       title: 'Pac4j 中文文档 v4.5（JDK 8）',
       description: 'pac4j 中文文档 v4.5（JDK 8）'
+    },
+    '/v4.0/': {
+      title: 'Pac4j 中文文档 v4.0（JDK 8）',
+      description: 'pac4j 中文文档 v4.0（JDK 8）'
     }
   },
   themeConfig: {
@@ -637,6 +641,108 @@ module.exports = {
           {
             title: '13）JavaDoc',
             path: 'https://www.javadoc.io/doc/org.pac4j/pac4j-core/4.3.0/index.html'
+          }
+        ]
+      },
+      '/v4.0/': {
+        selectText: '选择版本',
+        label: 'v4.0',
+        ariaLabel: 'v4.0',
+        algolia: {},
+        nav: [{
+            text: 'BookHub 首页',
+            link: 'https://www.bookhub.tech'
+          },
+          {
+            text: '中文文档',
+            link: 'https://docs.bookhub.tech'
+          },
+          {
+            text: '计算机书库',
+            link: 'https://pdf.bookhub.tech'
+          }
+        ],
+        sidebar: [
+          ["/v4.0/", "PAC4J 介绍"],
+          {
+            title: '1）主要概念和组件',
+            path: '/v4.0/main-concepts-and-components',
+            children: [
+              '/v4.0/how-to-implement-pac4j-for-a-new-framework'
+            ]
+          },
+          {
+            title: '2）认证机制',
+            path: '',
+            children: [{
+                title: '客户端',
+                path: '/v4.0/clients',
+                children: [
+                  '/v4.0/clients/oauth',
+                  '/v4.0/clients/saml',
+                  '/v4.0/clients/cas',
+                  '/v4.0/clients/openid-connect',
+                  '/v4.0/clients/http',
+                  '/v4.0/clients/openid',
+                  '/v4.0/clients/google-app-engine',
+                  '/v4.0/clients/kerberos'
+                ]
+              },
+              {
+                title: '认证器',
+                path: '/v4.0/authenticators',
+                children: [
+                  '/v4.0/authenticators/ldap',
+                  ['/v4.0/authenticators/sql', 'SQL'],
+                  '/v4.0/authenticators/jwt',
+                  '/v4.0/authenticators/mongodb',
+                  '/v4.0/authenticators/couchdb',
+                  '/v4.0/authenticators/ip',
+                  '/v4.0/authenticators/rest',
+                ]
+              }
+            ]
+          },
+          {
+            title: '3）授权机制：授权器',
+            path: '/v4.0/authorizers',
+            children: [
+              '/v4.0/authorizers/profile-authorizers',
+              '/v4.0/authorizers/web-authorizers'
+            ]
+          },
+          ['/v4.0/matchers', '4）匹配器'],
+          ['/v4.0/config','5）安全配置'],
+          {
+            title: '6）用户配置文件',
+            path: '/v4.0/user-profile'
+          },
+          {
+            title: '7）会话存储',
+            path: '/v4.0/session-store',
+            children: [
+              '/v4.0/store'
+            ]
+          },
+          {
+            title: '8）发行说明',
+            path: '/v4.0/release-notes',
+            children: [
+              '/v4.0/backward-compatibility'
+            ]
+          },
+          {
+            title: '9）认证流',
+            path: '/v4.0/authentication-flows',
+            children:[
+              '/v4.0/big-picture'
+            ]
+          },
+          ['/v4.0/customizations', '10）自定义设置'],
+          ['/v4.0/extensions', '11）第三方扩展'],
+          {
+            title: '12）JavaDoc',
+            path: 'https://www.javadoc.io/doc/org.pac4j/pac4j-core/4.0.3/index.html'
           }
         ]
       }

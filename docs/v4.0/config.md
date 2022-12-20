@@ -6,11 +6,11 @@
 
 它收集了所需的：
 
-- [客户端](/v4.5/clients.html)
-- [认证器](/v4.5/authenticators.html)
-- [授权器](/v4.5/authorizers.html)
-- [匹配器](/v4.5/matchers.html)
-- [密码编码](/v4.5/authenticators.html#_2-PasswordEncoder)
+- [密码编码](/v4.0/authenticators.html#_2-PasswordEncoder)
+- [认证器](/v4.0/authenticators.html)
+- [客户端](/v4.0/clients.html)
+- [授权器](/v4.0/authorizers.html)
+- [匹配器](/v4.0/matchers.html)
 
 **示例**：
 
@@ -39,23 +39,13 @@ Config config = new Config(clients);
 
 在这个例子中，你可以为所有客户端定义：
 
-- 相同的回调 URL、`UrlResolver` 和 `CallbackUrlResolver`：`clients.setCallbackUrl(callbackUrl)`、`clients.setUrlResolver(urlResolver)` and `clients.setCallbackUrlResolver(callbackUrlResolver)`
-- 相同的 `AjaxRequestResolver`：`clients.setAjaxRequestResolver(ajaxRequestResolver)`
-- 相同的 `AuthorizationGenerator`：`clients.addAuthorizationGenerator(authorizationGenerator)`
+- 一个回调 URL、`UrlResolver` 和 `CallbackUrlResolver`：`clients.setCallbackUrl(callbackUrl)`、`clients.setUrlResolver(urlResolver)` and `clients.setCallbackUrlResolver(callbackUrlResolver)`
+- 一个 `AjaxRequestResolver`：`clients.setAjaxRequestResolver(ajaxRequestResolver)`
+- 一个 `AuthorizationGenerator`：`clients.addAuthorizationGenerator(authorizationGenerator)`
 
 ## 2）`pac4j-config` 模块
 
-`pac4j-config` 模块：
-
-```xml
-<dependency>
-    <groupId>org.pac4j</groupId>
-    <artifactId>pac4j-config</artifactId>
-    <version>${pac4j.version}</version>
-</dependency>
-```
-
-收集所有 *pac4j* 设施以定义此 `Config` 对象。目前，只有一个组件允许你从一组属性构建客户端：[PropertiesConfigFactory](https://github.com/pac4j/pac4j/blob/master/pac4j-config/src/main/java/org/pac4j/config/client/PropertiesConfigFactory.java)。
+这个 `pac4j-config` 模块收集所有 *​​​​​pac4j* 工具来定义此 `Config` 对象。目前，只有一个组件允许你从一组属性构建客户端：[PropertiesConfigFactory](https://github.com/pac4j/pac4j/blob/master/pac4j-config/src/main/java/org/pac4j/config/client/PropertiesConfigFactory.java)。它用于 Dropwizard、CAS 和 Knox。
 
 ::: danger 注意
 注意，在必要时必须显式声明依赖项（如果要使用 SAML，请使用 `pac4j-saml` 模块，如果要使用 OAuth，请使用 `pac4j-oauth`模块……）
@@ -90,7 +80,7 @@ pac4j:
     formClient.authenticator: ldap
 ```
 
-以下是可用于定义客户端的属性（认证器和密码编码器）：
+以下是可用于定义客户端的属性（密码编码器和认证器）：
 
 |可用属性|用途|
 |--|--|
@@ -123,6 +113,6 @@ pac4j:
 
 - 你可以通过在属性末尾添加一个数字来定义同一类型的多个客户端：`cas.loginUrl.2`、`oidc.type.5` ……
 - `.passwordEncoder` 属性必须设置为已定义在 `PasswordEncoder` 中的名字，比如 `encoder.spring` 或 `encoder.shiro.3`
-- `.authenticator` 属性必须设置为已定义在 `Authenticator` 中的名字，比如 `ldap` 或 `db.1` 或隐式值：`testUsernamePassword` 或 `testToken`（用于测试认证器）。
+- `.authenticator` 属性必须设置为已定义在 `Authenticator` 中的名字，比如 `ldap` 或 `db.1` 或隐式值：`testUsernamePassword` 或 `testToken`。
 
-> [原文链接](https://www.pac4j.org/4.5.x/docs/config.html)
+> [原文链接](https://www.pac4j.org/4.0.x/docs/config.html)

@@ -17,7 +17,7 @@
 
 在 *pac4j* 环境中，必须考虑的第一个用户配置文件是 [CommonProfile](https://github.com/pac4j/pac4j/blob/master/pac4j-core/src/main/java/org/pac4j/core/profile/CommonProfile.java)，它定义了大多数配置文件中最常用的方法。
 
-用户配置文件通过 [profile 管理器](/v5.0/profile-manager.html)进行管理。
+用户配置文件通过 [配置文件管理器](/v5.0/profile-manager.html)进行管理。
 
 ## 1）标识符
 

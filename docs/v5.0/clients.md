@@ -39,6 +39,7 @@
 |登录流程发生了几次？|通过定义的 [Authenticator](/v5.0/authenticators.html) 和 `ProfileCreator` 对每个 HTTP 请求（在“安全过滤器”中）进行认证。<br/>出于性能原因，可以通过将当前 `Authenticator` 包装在 `LocalCachingAuthenticator` 中来使用缓存，或者可以配置“安全过滤器”以在会话中保存配置配置文件（`ProfileStorageDecision`）|认证仅发生一次（在“回调过滤器”中）|
 |默认情况下，用户 profile 保存在哪？|在 HTTP request 中（无状态）|在 web session 中（有状态）|
 |凭据在哪里？|为每个 HTTP request 传递（由“安全过滤器”处理）|在身份提供者（`identity provider`）返回的回调端点上（由“回调端点”获取）|
+|什么是受保护的 URL？|web 服务的 URL 受“安全过滤器”保护|web 应用程序的 URL 受“安全过滤器”保护，但回调 URL 不受保护，因为它在用户仍然匿名的登录过程中使用|
 
 ## 2）计算角色和权限
 
@@ -165,7 +166,7 @@ defaultCallbackLogic.setClient("FacebookClient");
 
 但是，如果登录流程失败或被取消，你可能仍然希望访问 web 资源。
 
-为此，可以使用客户端的 `setProfileFactoryWhenNotAuthenticated 方法返回自定义配置文件，而不是无配置文件。
+为此，可以使用客户端的 `setProfileFactoryWhenNotAuthenticated` 方法返回自定义配置文件，而不是无配置文件。
 
 **示例**：
 

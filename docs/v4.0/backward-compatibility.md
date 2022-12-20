@@ -18,6 +18,6 @@
 
 ## 2）维护
 
-通常，只有一个稳定的和已发布的 `pac4j` ​​​​​​​​​​​​​​​​流​同时维护，目前是版本 4。
+自版本 3 以来，只有一个稳定且已发布的 *pac4j* 流同时维护。
 
-> [原文链接](https://www.pac4j.org/4.5.x/docs/backward-compatibility.html)
+> [原文链接](https://www.pac4j.org/4.0.x/docs/backward-compatibility.html)
